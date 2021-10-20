@@ -8,6 +8,7 @@ class Post(models.Model):
     # 글 내용 정의 (최대 길이 지정 필요 없음)
     content = models.TextField()
 
+    head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
     # 작성일 정의
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
