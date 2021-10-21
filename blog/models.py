@@ -6,6 +6,8 @@ import os
 class Post(models.Model):
     # 게시글 제목 정의
     title = models.CharField(max_length=50)
+    # hook text 정의
+    hook_text = models.CharField(max_length=100, blank=True)
     # 글 내용 정의 (최대 길이 지정 필요 없음)
     content = models.TextField()
 
@@ -24,7 +26,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         return f'/blog/{self.pk}/'
 
-    # 직접 만든 함수수
+    # 직접 만든 함수
     def get_file_name(self):
         return os.path.basename(self.file_upload.name)
 
